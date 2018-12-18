@@ -15,10 +15,10 @@ public class MainPageTest {
     }
 
     @Test
-    public void checkAvailabilityOfDates() {
+    public void checkAvailabilityOfPrevMonthButton() {
         MainPage mainPage = new MainPage();
 
-        Assert.assertTrue(mainPage.IsDateDisabledPresent());
+        Assert.assertTrue(mainPage.IsPrevMonthDisabledPresent());
     }
 
     @Test
@@ -26,6 +26,34 @@ public class MainPageTest {
         MainPage mainPage = new MainPage();
 
         Assert.assertTrue(mainPage.isAddAdultButtonDisabledPresent());
+    }
+
+    @Test
+    public void checkEnglishLanguageSwitcher() {
+        MainPage mainPage = new MainPage();
+
+        Assert.assertTrue(mainPage.isEnglishPlaceholderPresent());
+    }
+
+    @Test
+    public void checkOneWayButton() {
+        MainPage mainPage = new MainPage();
+
+        Assert.assertTrue(mainPage.isBackDatePickerInputPresent());
+    }
+
+    @Test
+    public void checkGeoWarningModal() {
+        MainPage mainPage = new MainPage();
+
+        Assert.assertTrue(mainPage.isGeoWarningModalPresent());
+    }
+
+    @Test
+    public void checkBaggageAllowanceModal() {
+        MainPage mainPage = new MainPage();
+
+        Assert.assertTrue(mainPage.isBaggageAllowanceModalPresent());
     }
 
     @AfterMethod

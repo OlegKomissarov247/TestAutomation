@@ -12,6 +12,6 @@ public abstract class Page {
     public Page() {
         driver = DriverProvider.getDriver();
         PageFactory.initElements(driver, this);
-        driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
     }
 }
