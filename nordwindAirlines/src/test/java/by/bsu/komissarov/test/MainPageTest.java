@@ -56,6 +56,20 @@ public class MainPageTest {
         Assert.assertTrue(mainPage.isBaggageAllowanceModalPresent());
     }
 
+    @Test
+    public void checkOrderTicketChildrenInput() {
+        MainPage mainPage = new MainPage();
+
+        Assert.assertTrue(mainPage.isChildrenCountLabelPresent());
+    }
+
+    @Test
+    public void checkBusinessClassSeatsBlock() {
+        MainPage mainPage = new MainPage();
+
+        Assert.assertTrue(mainPage.isBusinessClassSeatsBlockPresent());
+    }
+
     @AfterMethod
     public void closeDriver() {
         DriverProvider.closeDriver();
