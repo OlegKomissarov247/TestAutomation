@@ -93,14 +93,22 @@ public class MainPage extends Page {
         baggageAllowanceInfoLink.click();
     }
 
+    private void chooseOneWayTicketType() {
+        new Actions(driver).click(oneWayButton).perform();
+    }
+
+    private void fillAdultsInput() {
+        adultsInput.clear();
+        adultsInput.sendKeys(String.valueOf(MAX_ADULTS_AMOUNT));
+    }
+
     public boolean IsPrevMonthDisabledPresent() {
         datePickerInput.click();
         return prevMonth.isEnabled();
     }
 
     public boolean isAddAdultButtonDisabledPresent() {
-        adultsInput.clear();
-        adultsInput.sendKeys(String.valueOf(MAX_ADULTS_AMOUNT));
+        fillAdultsInput();
         subHeader.click();
         return addAdultButtonDisabled.isEnabled();
     }
@@ -112,12 +120,12 @@ public class MainPage extends Page {
     }
 
     public boolean isBackDatePickerInputHidden() {
-        new Actions(driver).click(oneWayButton).perform();
+        chooseOneWayTicketType();
         return datePickerBackInputHidden.isEnabled();
     }
 
     public boolean isBackDatePickerInputPresent() {
-        new Actions(driver).click(oneWayButton).perform();
+        chooseOneWayTicketType();
         new Actions(driver).click(twoWayButton).perform();
         return datePickerBackInputActive.isEnabled();
     }
