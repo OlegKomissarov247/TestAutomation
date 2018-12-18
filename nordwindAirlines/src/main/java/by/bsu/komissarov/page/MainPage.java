@@ -11,8 +11,14 @@ public class MainPage extends Page {
     @FindBy(xpath = "//span[contains(text(), \"Только туда\")]")
     private WebElement oneWayButton;
 
+    @FindBy(xpath = "//span[contains(text(), \"Туда и обратно\")]")
+    private WebElement twoWayButton;
+
     @FindBy(xpath = "//div[@class = \"search-form__field search-form__field_date-arrival js-date-to-container field_hidden\"]//input[contains(@placeholder, \"Вылет обратно\")]")
     private WebElement datePickerBackInputHidden;
+
+    @FindBy(xpath = "//div[@class = \"search-form__field search-form__field_date-arrival js-date-to-container field_active\"]//input[contains(@placeholder, \"Вылет обратно\")]")
+    private WebElement datePickerBackInputActive;
 
     @FindBy(xpath = "//input[contains(@placeholder, \"Вылет туда\")]")
     private WebElement datePickerInput;
@@ -38,45 +44,6 @@ public class MainPage extends Page {
     @FindBy(xpath = "//button[@disabled=\"disabled\"]/svg[@class = \"search-form__icon-arrow_right\"]")
     private WebElement addAdultButtonDisabled;
 
-    @FindBy(xpath = "//div[@class=\"el-submenu__title\"][contains(text(), \"Услуги\")]")
-    private WebElement serviceSubmenuButton;
-
-    @FindBy(xpath = "//span[@class=\"el-menu-link__text\"][contains(text(), \"Управление заказом\")]")
-    private WebElement orderManageLink;
-
-    @FindBy(xpath = "//div[@class=\"el-menu-link__text\"][contains(text(), \"Управление заказом\")]")
-    private WebElement geoWarningModal;
-
-    @FindBy(xpath = "//span[@class=\"el-menu-link__text\"][contains(text(), \"Выбор места в самолёте\")]")
-    private WebElement baggageAllowanceInfoLink;
-
-    @FindBy(xpath = "//div[@class=\"cost__dialog-title\"][contains(text(), \"Стоимость провоза багажа\")]")
-    private WebElement baggageAllowanceModal;
-
-    @FindBy(xpath = "//i[@class=\"icon_minus\"]")
-    private WebElement minusAdultsOrderFormIcon;
-
-    @FindBy(xpath = "//input[@class=\"valueInp valueInp_js ng-pristine ng-valid ng-not-empty ng-touched\"]")
-    private WebElement adultsOrderFormInput;
-
-    @FindBy(xpath = "//span[@class=\"el-menu-link__text\"][contains(text(), \"Купить билет\")]")
-    private WebElement makeOrderLink;
-
-    @FindBy(xpath = "//a[@class=\"child-pickers-switch\"][contains(text(), \"Я путешествую с детьми\")]")
-    private WebElement addChildrenButton;
-
-    @FindBy(xpath = "//label[contains(text(), \"Дети (2-12)\")]")
-    private WebElement childrenCountLabel;
-
-    @FindBy(xpath = "//span[@class=\"el-menu-link__text\"][contains(text(), \"Выбор места в самолете\")]")
-    private WebElement chooseSeatLink;
-
-    @FindBy(xpath = "//span[@class=\"seat-selection__tab\"][contains(text(), \"Бизнес класс\")]")
-    private WebElement businessClassSeatsTab;
-
-    @FindBy(xpath = "//div[@class=\"seat-selection__scheme_business-class\"]")
-    private WebElement businessClassSeatsBlock;
-
     public boolean IsPrevMonthDisabledPresent() {
         datePickerInput.click();
         return prevMonth.isEnabled();
@@ -95,34 +62,14 @@ public class MainPage extends Page {
         return englishDatepickerPlaceholder.isEnabled();
     }
 
-    public boolean isBackDatePickerInputPresent() {
+    public boolean isBackDatePickerInputHidden() {
         new Actions(driver).click(oneWayButton).perform();
         return datePickerBackInputHidden.isEnabled();
     }
 
-    public boolean isGeoWarningModalPresent() {
-        serviceSubmenuButton.click();
-        orderManageLink.click();
-        return geoWarningModal.isEnabled();
-    }
-
-    public boolean isBaggageAllowanceModalPresent() {
-        serviceSubmenuButton.click();
-        baggageAllowanceInfoLink.click();
-        addChildrenButton.click();
-        return baggageAllowanceModal.isEnabled();
-    }
-
-    public boolean isChildrenCountLabelPresent() {
-        serviceSubmenuButton.click();
-        makeOrderLink.click();
-        return childrenCountLabel.isEnabled();
-    }
-
-    public boolean isBusinessClassSeatsBlockPresent() {
-        serviceSubmenuButton.click();
-        chooseSeatLink.click();
-        businessClassSeatsTab.click();
-        return businessClassSeatsBlock.isEnabled();
+    public boolean isBackDatePickerInputPresent() {
+        new Actions(driver).click(oneWayButton).perform();
+        new Actions(driver).click(twoWayButton).perform();
+        return datePickerBackInputActive.isEnabled();
     }
 }
