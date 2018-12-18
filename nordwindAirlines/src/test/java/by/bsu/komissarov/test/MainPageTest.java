@@ -11,17 +11,20 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import sun.tools.jar.Main;
 
 public class MainPageTest {
 
+    private MainPage mainPage;
     @BeforeMethod
     public void openWebPage() {
         DriverProvider.getDriver().get("https://nordwindairlines.ru/");
+        mainPage = new MainPage();
     }
 
     @Test
     public void checkAvailabilityOfPrevMonthButton() {
-        MainPage mainPage = new MainPage();
+
 
         Assert.assertTrue(mainPage.IsPrevMonthDisabledPresent());
     }
@@ -75,19 +78,7 @@ public class MainPageTest {
         Assert.assertTrue(makeOrderPage.isChildrenCountLabelPresent());
     }
 
-    @Test
-    public void checkBusinessClassSeatsBlock() {
-        ChooseSeatPage chooseSeatPage = new ChooseSeatPage();
 
-        Assert.assertTrue(chooseSeatPage.isBusinessClassSeatsBlockPresent());
-    }
-
-    @Test
-    public void checkServiceClassesPage() {
-        ServiceClassesPage serviceClassesPage = new ServiceClassesPage();
-
-        Assert.assertTrue(serviceClassesPage.isServiceClassesPagePresent());
-    }
 
     @AfterMethod
     public void closeDriver() {

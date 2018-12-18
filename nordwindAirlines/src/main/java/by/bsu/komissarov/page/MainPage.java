@@ -8,6 +8,12 @@ public class MainPage extends Page {
 
     private static final int MAX_ADULTS_AMOUNT = 9;
 
+    @FindBy(xpath = "//div[@class=\"el-submenu__title\"][contains(text(), \"Услуги\")]")
+    private WebElement serviceSubmenuButton;
+
+    @FindBy(xpath = "//span[@class=\"el-menu-link__text\"][contains(text(), \"Выбор места в самолете\")]")
+    private WebElement chooseSeatLink;
+
     @FindBy(xpath = "//span[contains(text(), \"Только туда\")]")
     private WebElement oneWayButton;
 
@@ -43,6 +49,49 @@ public class MainPage extends Page {
 
     @FindBy(xpath = "//button[@disabled=\"disabled\"]/svg[@class = \"search-form__icon-arrow_right\"]")
     private WebElement addAdultButtonDisabled;
+
+    @FindBy(xpath = "//div[@class=\"el-submenu__title\"][contains(text(), \"Информация\")]")
+    private WebElement infoSubmenuButton;
+
+    @FindBy(xpath = "//span[@class=\"el-menu-link__text\"][contains(text(), \"Классы обслуживания\")]")
+    private WebElement serviceClassesLink;
+
+    @FindBy(xpath = "//span[@class=\"el-menu-link__text\"][contains(text(), \"Выбор места в самолёте\")]")
+    private WebElement baggageAllowanceInfoLink;
+
+    @FindBy(xpath = "//span[@class=\"el-menu-link__text\"][contains(text(), \"Управление заказом\")]")
+    private WebElement orderManageLink;
+
+    @FindBy(xpath = "//span[@class=\"el-menu-link__text\"][contains(text(), \"Купить билет\")]")
+    private WebElement makeOrderLink;
+
+    public void openServicesSubmenu() {
+        serviceSubmenuButton.click();
+    }
+
+    public void openInfoSubmenu() {
+        infoSubmenuButton.click();
+    }
+
+    public void goToChooseSeatPage() {
+        chooseSeatLink.click();
+    }
+
+    public void goToServiceClassesPage() {
+        serviceClassesLink.click();
+    }
+
+    public void goToMakeOrderPage() {
+        makeOrderLink.click();
+    }
+
+    public void goToOrderManagePage() {
+        orderManageLink.click();
+    }
+
+    public void goToBaggageAllowancePage() {
+        baggageAllowanceInfoLink.click();
+    }
 
     public boolean IsPrevMonthDisabledPresent() {
         datePickerInput.click();
