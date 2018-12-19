@@ -50,7 +50,7 @@ public class MainPage extends Page {
     @FindBy(xpath = "//button[@disabled=\"disabled\"]/svg[@class = \"search-form__icon-arrow_right\"]")
     private WebElement addAdultButtonDisabled;
 
-    @FindBy(xpath = "//div[@class=\"el-submenu__title\"][contains(text(), \"Информация\")]")
+    @FindBy(xpath = "//div[@class=\"el-submenu__title\"][contains(text(), \"информация\")]")
     private WebElement infoSubmenuButton;
 
     @FindBy(xpath = "//span[@class=\"el-menu-link__text\"][contains(text(), \"Классы обслуживания\")]")
