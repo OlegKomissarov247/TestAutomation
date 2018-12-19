@@ -4,12 +4,12 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.epam.likhanova</groupId>
-  <artifactId>norwegian</artifactId>
+  <groupId>com.epam.komissarov</groupId>
+  <artifactId>nordwind</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <name>norwegian</name>
-  <url>http://www.norwegian.com</url>
+  <name>nordwind</name>
+  <url>http://www.nordwind.com</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
