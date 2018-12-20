@@ -1,5 +1,6 @@
 package by.bsu.komissarov.page;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -8,11 +9,18 @@ public class MainPage extends Page {
 
     private static final int MAX_ADULTS_AMOUNT = 9;
 
+    private static final By ChooseSeatLink = By.xpath("//span[@class=\"el-menu-link__text\"][contains(text(), \"Выбор места в самолете\")]");
+
+    private static final By ServiceClassesLink = By.xpath("//span[@class=\"el-menu-link__text\"][contains(text(), \"Классы обслуживания\")]");
+
+    private static final By BaggageAllowanceInfoLink = By.xpath("//span[@class=\"el-menu-link__text\"][contains(text(), \"Выбор места в самолёте\")]");
+
+    private static final By MakeOrderLink = By.xpath("//span[@class=\"el-menu-link__text\"][contains(text(), \"Купить билет\")]");
+
+    private static final By OrderManageLink = By.xpath("//span[@class=\"el-menu-link__text\"][contains(text(), \"Управление заказом\")]");
+
     @FindBy(xpath = "//div[@class=\"el-submenu__title\"][contains(text(), \"Услуги\")]")
     private WebElement serviceSubmenuButton;
-
-    @FindBy(xpath = "//span[@class=\"el-menu-link__text\"][contains(text(), \"Выбор места в самолете\")]")
-    private WebElement chooseSeatLink;
 
     @FindBy(xpath = "//span[contains(text(), \"Только туда\")]")
     private WebElement oneWayButton;
@@ -41,6 +49,9 @@ public class MainPage extends Page {
     @FindBy(xpath = "//h1[contains(text(), \"Лучшие предложения\")]")
     private WebElement subHeader;
 
+    @FindBy(xpath = "//div[@class=\"el-submenu__title\"][contains(text(), \"информация\")]")
+    private WebElement infoSubmenuButton;
+
     @FindBy(xpath = "//a[@class = \"ui-datepicker-prev ui-corner-all ui-state-disabled\"]")
     private WebElement prevMonth;
 
@@ -49,21 +60,6 @@ public class MainPage extends Page {
 
     @FindBy(xpath = "//button[@disabled=\"disabled\"]/svg[@class = \"search-form__icon-arrow_right\"]")
     private WebElement addAdultButtonDisabled;
-
-    @FindBy(xpath = "//div[@class=\"el-submenu__title\"][contains(text(), \"информация\")]")
-    private WebElement infoSubmenuButton;
-
-    @FindBy(xpath = "//span[@class=\"el-menu-link__text\"][contains(text(), \"Классы обслуживания\")]")
-    private WebElement serviceClassesLink;
-
-    @FindBy(xpath = "//span[@class=\"el-menu-link__text\"][contains(text(), \"Выбор места в самолёте\")]")
-    private WebElement baggageAllowanceInfoLink;
-
-    @FindBy(xpath = "//span[@class=\"el-menu-link__text\"][contains(text(), \"Управление заказом\")]")
-    private WebElement orderManageLink;
-
-    @FindBy(xpath = "//span[@class=\"el-menu-link__text\"][contains(text(), \"Купить билет\")]")
-    private WebElement makeOrderLink;
 
     public void openServicesSubmenu() {
         serviceSubmenuButton.click();
@@ -74,23 +70,23 @@ public class MainPage extends Page {
     }
 
     public void goToChooseSeatPage() {
-        chooseSeatLink.click();
+        driver.findElement(ChooseSeatLink).click();
     }
 
     public void goToServiceClassesPage() {
-        serviceClassesLink.click();
+        driver.findElement(ServiceClassesLink).click();
     }
 
     public void goToMakeOrderPage() {
-        makeOrderLink.click();
+        driver.findElement(MakeOrderLink).click();
     }
 
     public void goToOrderManagePage() {
-        orderManageLink.click();
+        driver.findElement(OrderManageLink).click();
     }
 
     public void goToBaggageAllowancePage() {
-        baggageAllowanceInfoLink.click();
+        driver.findElement(BaggageAllowanceInfoLink).click();
     }
 
     private void chooseOneWayTicketType() {

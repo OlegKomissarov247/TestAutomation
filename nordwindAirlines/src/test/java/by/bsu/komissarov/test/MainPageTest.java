@@ -10,6 +10,7 @@ import org.testng.annotations.Test;
 public class MainPageTest {
 
     private MainPage mainPage;
+
     @BeforeMethod
     public void openWebPage() {
         DriverProvider.getDriver().get("https://nordwindairlines.ru/");
